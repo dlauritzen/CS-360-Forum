@@ -1,0 +1,30 @@
+DLauritz\Forum\ForumBundle\Entity\Forum:
+    type: entity
+    table: forum
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: '100'
+    manyToOne:
+        parent:
+            targetEntity: Forum
+            mappedBy: forum
+            joinColumn:
+                name: parent_id
+                referencedColumnName: id
+        category:
+            targetEntity: Category
+            mappedBy: forum
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
+    oneToMany:
+        children:
+            targetEntity: Forum
+            mappedBy: parent
+    lifecycleCallbacks: {  }

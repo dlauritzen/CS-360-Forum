@@ -1,0 +1,14 @@
+{% extends "DLauritzForumForumBundle::forumlayout.html.twig" %}
+
+{% block body %}
+Categories!!!
+
+<ul>
+{% for cat in categories %}
+	<li><a href="{{ path('forum_categories', { 'action': 'view', 'params': cat.id }) }}">{{ cat.name }}</a>: {{ cat.description }}</li>
+{% else %}
+	<li>No categories</li>
+{% endfor %}
+</ul>
+{% endblock %}
+

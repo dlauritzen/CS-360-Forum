@@ -1,3 +1,15 @@
 forum_index:
     pattern:  /
-    defaults: { _controller: DLauritzForumForumBundle:Forum:index }
+    defaults:
+        _controller: DLauritzForumForumBundle:Forum:index
+
+forum_categories:
+    pattern: /cat/{action}/{params}.{_format}
+    defaults:
+        _controller: DLauritzForumForumBundle:Category:index
+        _format: html
+        action: index
+        params: none
+    requirements:
+        _format: html|xml|json
+

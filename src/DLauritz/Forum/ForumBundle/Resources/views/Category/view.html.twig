@@ -1,0 +1,17 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+<h1>Category: {{ cat.name }}</h1>
+<p><i>{{ cat.description }}</i></p>
+
+<h2>Forums</h2>
+<ul>
+{% for f in cat.forums %}
+	<li>{{ f.name }}</li>
+{% else %}
+	<li>No forums</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

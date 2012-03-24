@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{% block title %}CS 360 Forum{% endblock %}</title>
+	<title>
+		{% block title %}CS 360 Forum{% endblock %}
+		{% if app.debug %}
+		 - DEV SITE
+		{% endif %}
+	</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	{% block stylesheets %}
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
@@ -18,7 +23,6 @@
 {% if app.debug %}
 <div class="debug">
 	<p>Request method: {{ app.request.method }}</p>
-	<p>Environment: {{ app.environment }}</p>
 </div>
 {% endif %}
 </body>
