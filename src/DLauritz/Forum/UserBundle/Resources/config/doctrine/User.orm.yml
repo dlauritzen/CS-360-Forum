@@ -1,0 +1,38 @@
+DLauritz\Forum\UserBundle\Entity\User:
+    type: entity
+    table: user
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        username:
+            type: string
+            length: 50
+            unique: true
+        password:
+            type: string
+            length: 50
+        email:
+            type: string
+            length: 50
+            unique: true
+        salt:
+            type: string
+            length: 40
+        isActive:
+            type: boolean
+    manyToMany:
+        groups:
+            targetEntity: Group
+            inversedBy: users
+            joinTable:
+                name: users_groups
+                joinColumns:
+                    user_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    group_id:
+                        referencedColumnName: id
+
