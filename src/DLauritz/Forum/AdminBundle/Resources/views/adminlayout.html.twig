@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}" />
+	<link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+{% if app.session.hasFlash('notice') %}
+	<div class="flash-notice">
+		{{ app.session.flash('notice') }}
+	</div>
+{% endif %}
+
+<div class="content">
+	{% block body %}{% endblock %}
+</div>
+</body>
+</html>

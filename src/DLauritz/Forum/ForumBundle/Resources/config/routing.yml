@@ -1,0 +1,3 @@
+forum_index:
+    pattern:  /
+    defaults: { _controller: DLauritzForumForumBundle:Forum:index }
