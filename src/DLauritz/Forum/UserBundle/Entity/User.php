@@ -209,4 +209,29 @@ class User implements UserInterface
     	$this->password = "";
     }
     
+    /**
+     * @var string $display_name
+     */
+    private $display_name;
+
+
+    /**
+     * Set display_name
+     *
+     * @param string $displayName
+     */
+    public function setDisplayName($displayName)
+    {
+        $this->display_name = $displayName;
+    }
+
+    /**
+     * Get display_name
+     *
+     * @return string 
+     */
+    public function getDisplayName()
+    {
+        return $this->display_name;
+    }
 }

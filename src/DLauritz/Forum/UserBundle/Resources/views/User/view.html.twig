@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} {{ user.displayname }} - Profile {% endblock %}
+
+{% block body %}
+
+<h1>Profile for {{ user.displayname }} ({{ user.username }})</h1>
+
+<ul>
+	<li>E-Mail Address: {{ user.email }}</li>
+	<li>
+		Groups:
+		<ul>
+		{% for group in user.groups %}
+			<li>{{ group.name }}</li>
+		{% endfor %}
+		</ul>
+	</li>
+</ul>
+
+{% endblock %}

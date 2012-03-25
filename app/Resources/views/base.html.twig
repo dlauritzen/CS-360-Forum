@@ -17,10 +17,21 @@
 	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body>
+<div id="site_header">
+{% block header %}
+	{% if app.user != NULL %}
+		{{ app.user.displayname }} (<a href="{{ path('logout') }}">Log Out</a>)
+	{% else %}
+		Guest (<a href="{{ path('login') }}">Log In</a>)
+	{% endif %}
+{% endblock %}
+</div>
+
 {% block body %}{% endblock %}
 {% block javascripts %}{% endblock %}
 
 {% if app.debug %}
+<hr />
 <div class="debug">
 	<p>Request method: {{ app.request.method }}</p>
 </div>

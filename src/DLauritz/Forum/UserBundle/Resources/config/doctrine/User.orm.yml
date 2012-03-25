@@ -13,6 +13,9 @@ DLauritz\Forum\UserBundle\Entity\User:
             unique: true
         password:
             type: string
+            length: 100
+        display_name:
+            type: string
             length: 50
         email:
             type: string
@@ -35,4 +38,12 @@ DLauritz\Forum\UserBundle\Entity\User:
                 inverseJoinColumns:
                     group_id:
                         referencedColumnName: id
-
+    properties:
+        username:
+            - NotBlank: ~
+            - Regex: "/^[a-z0-9\-_]+$/i"
+        password:
+            - NotBlank: { groups: [registration] }
+            - MinLength: { limit: 6, groups: [registration] }
+        email:
+            - Email: { groups: [registration] }
